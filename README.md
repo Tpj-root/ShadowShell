@@ -8,7 +8,7 @@ It transforms any PC into my personal environment within minutes, bringing along
 
 
 
-dependencies_list
+## dependencies_list
 
 sudo apt-get install rlwrap cowsay toilet  # For Debian-based systems
 
@@ -26,6 +26,6 @@ sudo apt-get install rlwrap cowsay toilet  # For Debian-based systems
 
 
 
-Todo:
+## Todo:
 
 Add private key encryption for files.

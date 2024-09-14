@@ -73,10 +73,86 @@ echo -e ${GREEN} "The reason to start is to pave the way for the possibilities t
 title_fun
 why
 
+
+# new terminal open and run the any command function
+# xterm -hold -e "seq 1 100" &
+
+# Set Window Size and Position
+# xterm -geometry 80x24+100+100 &
+
+# Turtle emoji
+# echo -e "Turtle emoji: $(echo -e "\U1F422")"
+# list the emoji
+# seq 01 999 | while read line; do echo -e "\U1F$line"; done | column 
+
+# figlet online https://www.askapache.com/online-tools/figlet-ascii/
+
+
+open_new_terminal() {
+#    xterm -geometry 100x30+200+150 -hold -e "seq 1 1000" &
+    xterm -geometry 100x30+400+350  -e "seq 1 10000" &
+    xterm -geometry 100x30+600+550  -e "seq 1 10000" &
+    xterm -geometry 100x30+800+750  -e "seq 1 10000" &
+}
+
+
+
+emoji() {
+    local message="$1"
+    local output=""
+
+    declare -A emoji_map=(
+        ["a"]="🅐 "
+        ["b"]="🅑 "
+        ["c"]="🅒 "
+        ["d"]="🅓 "
+        ["e"]="🅔 "
+        ["f"]="🅕 "
+        ["g"]="🅖 "
+        ["h"]="🅗 "
+        ["i"]="🅘 "
+        ["j"]="🅙 "
+        ["k"]="🅚 "
+        ["l"]="🅛 "
+        ["m"]="🅜 "
+        ["n"]="🅝 "
+        ["o"]="🅞 "
+        ["p"]="🅟 "
+        ["q"]="🅠 "
+        ["r"]="🅡 "
+        ["s"]="🅢 "
+        ["t"]="🅣 "
+        ["u"]="🅤 "
+        ["v"]="🅥 "
+        ["w"]="🅦 "
+        ["x"]="🅧 "
+        ["y"]="🅨 "
+        ["z"]="🅩 "
+    )
+
+    for (( i=0; i<${#message}; i++ )); do
+        char="${message:$i:1}"
+        # Convert to lowercase if it's an uppercase letter
+        char_lower=$(echo "$char" | tr '[:upper:]' '[:lower:]')
+        if [[ -n "${emoji_map[$char_lower]}" ]]; then
+            output+="${emoji_map[$char_lower]}"
+        else
+            output+="$char"
+        fi
+    done
+
+    echo "$output"
+}
+
+# Usage example
+
+
+
+
 # Main shell loop
 while true; do
     # Prompt for user input
-    read -p "> " input
+    read -p "🅂 🅷 🅰 🅳 🅾 🆆 @ bash 🡆 💀" input
 
     # Process user commands
     case $input in
@@ -91,6 +167,14 @@ while true; do
         clear)
             # If user types 'clear', clear the terminal
             clear
+            ;;
+        seq)
+            # testing
+            open_new_terminal
+            ;;
+        hello)
+            # testing
+            emoji "hello"
             ;;
         exit)
             # Exit the custom shell
