@@ -1,0 +1,30 @@
+
+## Perfect
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Temp
+
+gitkey() {
+    # Start the SSH agent
+    eval "$(ssh-agent -s)"
+    
+    # Add your SSH key to the agent (replace with the actual path to your key)
+    ssh-add ~/Desktop/git/id_rsa
+}
+
+alias ard='/home/cnc/Desktop/soft/bin/arduino-cli'
+alias arduino-cli='ard'
+
+
+

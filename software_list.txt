@@ -1,0 +1,9 @@
+# A command-line tool to transfer data to/from a server using various protocols 
+# (e.g., HTTP, FTP, etc.), commonly used for web requests and API interactions.
+curl
+# A command-line utility for generating custom wordlists, often used in password cracking or brute force attacks.
+crunch
+# To run Matrix Keyboards requires you to install and test "xdotool". 
+# You can install it by typing "sudo apt install xdotool" in your console.
+# linuxcnc
+xdotool
