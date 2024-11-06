@@ -7,3 +7,7 @@ crunch
 # You can install it by typing "sudo apt install xdotool" in your console.
 # linuxcnc
 xdotool
+# xclip is a command-line utility that allows you to copy and paste text to and from the system clipboard in Linux.
+xclip
+
+

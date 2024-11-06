@@ -2,6 +2,46 @@
 ## Perfect
 
 
+### BASIC
+
+alias whois='git remote -v'
+alias where='pwd'
+alias c='clear'
+alias ip='ip addr show'
+alias iptables='/usr/sbin/iptables'
+alias o='xdg-open'
+alias e='echo'
+
+
+
+## Python
+alias py='python3'
+alias python='python3'
+alias pyhttp='python3 -m http.server 8000'
+
+
+## FUNC
+
+
+edit() {
+    "${EDITOR:-nano}" "$HOME/.bashrc"
+}
+
+
+
+copy_pwd() {
+    pwd
+    pwd | xclip -selection clipboard
+    echo "Directory copied to clipboard."
+}
+
+
+
+
+### Software
+
+alias ard='/home/cnc/Desktop/soft/bin/arduino-cli'
+alias arduino-cli='ard'
 
 
 
@@ -9,6 +49,28 @@
 
 
 
+######################
+### git
+######################
+
+alias gc='git clone'
+
+## git alias
+function gitremote() {
+    local repo="$1"
+    git remote set-url origin "git@github.com:Tpj-root/${repo}"
+    echo "Switched remote to git@github.com:Tpj-root/${repo}"
+}
+
+
+
+alias gitwho='git remote get-url origin'
+alias gitgo='git push origin main'
+alias gitkey='ssh-add /home/sab/Desktop/GIT_MAIN/id_rsa'
+alias gitgo='git add . && git commit -m "just go" && git push'
+
+
+##########################
 
 
 
@@ -23,8 +85,62 @@ gitkey() {
     ssh-add ~/Desktop/git/id_rsa
 }
 
-alias ard='/home/cnc/Desktop/soft/bin/arduino-cli'
-alias arduino-cli='ard'
 
+
+
+
+
+
+
+
+
+
+source /home/sab/Desktop/TRY_BUILD/linuxcnc-dev/scripts/rip-environment
+alias you='/home/sab/Desktop/BUILD/youtube_downloader/YTDownloader_Linux.AppImage'
+
+alias tele='cd /home/sab/Desktop/BUILD/Telegram && ./Telegram'
+alias m='mkdir build && cd build && cmake .. && make'
+alias lc='linuxcnc'
+alias game='cd /home/sab/Documents/1/3.0 && ruby sandbox.rb -c stone'
+
+
+alias st='/home/sab/Documents/PACK/sublime-text_build-3211_amd64/data/opt/sublime_text/sublime_text'
+
+
+
+alias tor='cd /home/sab/Desktop/BUILD/tor/tor-browser-linux-x86_64-13.0.1/tor-browser && ./start-tor-browser.desktop'
+
+
+
+alias ins='sudo apt-get install'
+alias mvplugin='ls *.so 1> /dev/null 2>&1 && mv *.so /usr/lib/x86_64-linux-gnu/qt5/plugins/designer/'
+
+alias Q='/home/sab/altera/13.0sp1/quartus/bin/quartus --64bit'
+alias makepipreq='pip freeze > requirements.txt'
+
+#alias
+
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+#  OpenCASCADE
+#
+export CASROOT=/usr/local/bin
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+# Add Open CASCADE include path
+export CPLUS_INCLUDE_PATH=/usr/local/include/opencascade:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+#
+# 
+# sudo lshw -short
+# get the hardware details
+#
+# root to user permission
+# sudo chown -R $USER:$USER 
+#
+#
 
 
