@@ -63,6 +63,62 @@ function gitremote() {
 }
 
 
+##########################################
+# 1 -- > git clone "URL"
+# 2 -- > cd <repo_name>
+# 3 -- > git remote set-url origin "git@github.com:Tpj-root/${repo_name}"
+# 4 -- > xdg-open .
+# 5 -- > gedit README.md
+
+function mygit() {
+    if [ -z "$1" ]; then
+        echo "Usage: mygit <repository_url>"
+        echo "Example: mygit https://github.com/Tpj-root/PCB_Prototype_Board.git"
+        return 1
+    fi
+
+    local repo_url="$1"
+    local repo_name=$(basename "$repo_url" .git)
+
+    # Clone the repository
+    git clone "$repo_url" || { echo "Failed to clone $repo_url"; return 1; }
+
+    # Navigate into the repository directory
+    cd "$repo_name" || { echo "Failed to cd into $repo_name"; return 1; }
+
+    # Set the remote to SSH
+    git remote set-url origin "git@github.com:Tpj-root/${repo_name}"
+    echo "Switched remote to git@github.com:Tpj-root/${repo_name}"
+
+    #open the current dir
+    xdg-open .
+
+    #open the Readme file
+    gedit README.md
+}
+
+
+
+function gitgo() {
+    git add . && git commit -m "just go" && git push
+}
+
+
+
+##########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 alias gitwho='git remote get-url origin'
 alias gitgo='git push origin main'
