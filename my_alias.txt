@@ -100,8 +100,17 @@ function mygit() {
 
 
 function gitgo() {
-    git add . && git commit -m "just go" && git push
+    # Check if the repository has any uncommitted changes
+    if git diff-index --quiet HEAD --; then
+        echo "No changes to commit. Pushing existing commits."
+        git push || { echo "Failed to push changes."; return 1; }
+    else
+        # Commit and push changes
+        echo "Changes detected. Adding, committing, and pushing."
+        git add . && git commit -m "just go" && git push || { echo "Failed to complete git operations."; return 1; }
+    fi
 }
+
 
 
 
