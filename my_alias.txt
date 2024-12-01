@@ -113,6 +113,23 @@ function gitgo() {
 
 
 
+gitgo() {
+    if [ -z "$1" ]; then
+        # If no argument is provided, use the current date and time as the commit message
+        msg=$(date +"%a_%b_%d_%I:%M:%S_%p_%Z_%Y")
+    else
+        # If an argument is provided, use it as the commit message
+        msg="$1"
+    fi
+    git add . && git commit -m "$msg"
+    # this command push to online
+    #git add . && git commit -m "$msg" && git push origin main
+}
+alias gitpushonly='git push origin main'
+#
+gitpush() {
+    git add . && git commit -m "$msg" && git push origin main
+}
 
 ##########################################
 
