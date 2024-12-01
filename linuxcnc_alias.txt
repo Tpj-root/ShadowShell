@@ -1,0 +1,31 @@
+
+## Perfect
+## linuxcnc alias
+alias halkill='halrun -U'
+
+
+mvcomp() {
+    if [ -z "$1" ]; then
+        echo "Usage: mvcomp <filename>"
+        return 1
+    fi
+
+    local target_dir="/home/sab/Desktop/TRY_BUILD/linuxcnc-dev/rtlib/"
+    local filename="$1"
+
+    # Check if the file exists
+    if [ ! -f "$filename" ]; then
+        echo "Error: File '$filename' does not exist."
+        return 1
+    fi
+
+    # Check if the file is a .so file
+    if [[ "$filename" != *.so ]]; then
+        echo "Error: '$filename' is not a .so file."
+        return 1
+    fi
+
+    # Move the file
+    mv "$filename" "$target_dir"
+    echo "Moved '$filename' to $target_dir"
+}
